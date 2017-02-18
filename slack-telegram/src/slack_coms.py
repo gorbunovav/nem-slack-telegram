@@ -70,7 +70,7 @@ class SlackManager():
                                 update = self.prep_message(update)
                                 logging.debug('Queued: %s' % update)
                                 queue.put(update)
-                            time.sleep(1)
+                        time.sleep(1)
                     except Exception, e:
                         logging.error(str(e))
                         break
