@@ -24,10 +24,10 @@ SLACK_TOKEN = Config.get('Token', 'Slack')
 TELEGRAM_TOKEN = Config.get('Token', 'Telegram')
 
 
-SLACK_CHANNEL_MATCHING = {'G0BCJ6A11': -23053030,
-                             'G085E7UF2': -14284494,
+SLACK_CHANNEL_MATCHING = {'G0BCJ6A11': -1001084987188,
+                             'G085E7UF2': -1001038858387,
                              'G0C7PQQ5V': -11209025,
-                             'G0K754RGB': -108453376,
+                             'G0K754RGB': -1001094091790,
                              'G0K7MCCTU': -87276436,
                              'C0402EBV4': -105936925,
                              'G1E69LH60': -146980320}
