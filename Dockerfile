@@ -1,13 +1,16 @@
-FROM python:2-alpine
+FROM python:2.7-alpine
 
-RUN mkdir -p /usr/src/app
+RUN apk add --no-cache bash 
+ 
+RUN mkdir -p slack-telegram
+COPY . /slack-telegram
+COPY ./entrypoint.sh /slack-telegram/slack-telegram/src/
 
-WORKDIR /usr/src/app
+WORKDIR /slack-telegram/slack-telegram/src/
 
-COPY ./slack-telegram/requirements.txt /usr/src/app/
+RUN pip install --no-cache-dir --upgrade pip
+RUN pip install --no-cache-dir -r ../requirements.txt
 
-RUN pip install --no-cache-dir -r requirements.txt
+ENTRYPOINT ["/bin/bash", "./entrypoint.sh"]
+CMD ["python", "bridge.py"]
 
-COPY ./slack-telegram/src/* /usr/src/app/
-
-CMD [ "python", "./bridge.py" ]
